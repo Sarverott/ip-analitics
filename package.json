@@ -1,0 +1,30 @@
+{
+  "name": "ipanalitics-server",
+  "version": "1.0.0",
+  "description": "node.js http server created to capture bot visits and hack attempts",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js --diagnostic-run",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarverott/ip-analitics.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "server",
+    "hack",
+    "nett",
+    "bot",
+    "http",
+    "statistics"
+  ],
+  "author": "Sett Sarverott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sarverott/ip-analitics/issues"
+  },
+  "homepage": "https://github.com/Sarverott/ip-analitics#readme"
+}
