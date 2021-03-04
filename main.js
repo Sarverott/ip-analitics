@@ -117,7 +117,7 @@ function sendDoc(response, nettHook){
   response.end();
 }
 function createServer(nettHook){
-  debugOutput(`worker ${process.pid} starts server on port 8080`);
+  debugOutput(`worker ${process.pid} starts server on port ${nettHook.port}`);
   http.createServer(function(request, response){
     var input=""
     request.on('data',function(data){
@@ -178,7 +178,15 @@ function checkConfigSafety(){
   }catch(err){
     fs.writeFileSync(
       path.resolve(__dirname, "./config/header.json"),
-      '{"port":8080,"code":200,"header":{"Content-Type": "text/html"}}'
+      JSON.stringify(
+        {
+          port:8080,
+          code:200,
+          header:{
+            "Content-Type":"text/html"
+          }
+        }
+      )
     );
   }
   try{
