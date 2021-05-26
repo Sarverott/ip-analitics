@@ -1,6 +1,6 @@
 {
   "name": "ipanalitics-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "node.js http server created to capture bot visits and hack attempts",
   "main": "main.js",
   "scripts": {

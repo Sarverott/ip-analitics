@@ -1,7 +1,7 @@
 /*
 Sett Sarverott
 ipanalitics 5
-2019
+2019-2021
 */
 const http=require("http"),
   url=require('url'),
@@ -99,7 +99,8 @@ function raportVisit(title, data, request, nettHook){
     method,
     url,
     httpVer,
-    headers
+    headers,
+    data
   };
   raport.time=now;
   fs.writeFile(
