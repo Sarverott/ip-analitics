@@ -1,0 +1,24 @@
+~[2021-4-26 8:53:23:330]~: master 6984 born
+~[2021-4-26 8:53:23:577]~: new worker: 3012 
+~[2021-4-26 8:53:23:584]~: worker 3012 starts server on port 8080
+~[2021-4-26 8:53:23:596]~: new worker: 15132 
+~[2021-4-26 8:53:23:608]~: worker 15132 starts server on port 8080
+~[2021-4-26 8:53:23:611]~: new worker: 9452 
+~[2021-4-26 8:53:23:621]~: worker 9452 starts server on port 8080
+~[2021-4-26 8:53:23:630]~: new worker: 9624 
+~[2021-4-26 8:53:23:637]~: worker 9624 starts server on port 8080
+~[2021-4-26 8:53:23:640]~: new worker: 4028 
+~[2021-4-26 8:53:23:644]~: new worker: 1176 
+~[2021-4-26 8:53:23:646]~: worker 4028 starts server on port 8080
+~[2021-4-26 8:53:23:649]~: worker 1176 starts server on port 8080
+~[2021-4-26 8:53:23:651]~: new worker: 4036 
+~[2021-4-26 8:53:23:656]~: worker 4036 starts server on port 8080
+~[2021-4-26 8:53:23:659]~: new worker: 1556 
+~[2021-4-26 8:53:23:663]~: worker 1556 starts server on port 8080
+~[2021-4-26 8:53:44:55]~: worker 1556- visit captured! 9n6etymx-1556
+~[2021-4-26 8:53:44:252]~: worker 1556- visit captured! z56etymx-1556
+~[2021-4-26 8:56:4:777]~: worker 1556- visit captured! wa7ytymx-1556
+~[2021-4-26 8:56:4:897]~: worker 1556- visit captured! sf7ytymx-1556
+~[2021-4-26 8:57:43:213]~: worker 1556 is losted (code:undefined, signal:undefined) killing in progress
+~[2021-4-26 8:57:43:215]~: worker 1176 is losted (code:undefined, signal:undefined) killing in progress
+~[2021-4-26 8:57:43:215]~: worker 1556 died (code:3221225786, signal:null) resurection in progress

@@ -1,0 +1,26 @@
+~[2020-7-22 9:22:56:172]~: master 16040 born
+~[2020-7-22 9:22:56:524]~: new worker: 18332 
+~[2020-7-22 9:22:56:528]~: new worker: 18224 
+~[2020-7-22 9:22:56:530]~: new worker: 16728 
+~[2020-7-22 9:22:56:536]~: worker 18332 starts server on port 8080
+~[2020-7-22 9:22:56:537]~: worker 18224 starts server on port 8080
+~[2020-7-22 9:22:56:542]~: new worker: 8992 
+~[2020-7-22 9:22:56:543]~: worker 16728 starts server on port 8080
+~[2020-7-22 9:22:56:551]~: worker 8992 starts server on port 8080
+~[2020-7-22 9:22:56:561]~: new worker: 11436 
+~[2020-7-22 9:22:56:570]~: worker 11436 starts server on port 8080
+~[2020-7-22 9:22:56:596]~: new worker: 15488 
+~[2020-7-22 9:22:56:597]~: new worker: 16932 
+~[2020-7-22 9:22:56:603]~: new worker: 15704 
+~[2020-7-22 9:22:56:604]~: worker 15488 starts server on port 8080
+~[2020-7-22 9:22:56:604]~: worker 16932 starts server on port 8080
+~[2020-7-22 9:22:56:611]~: worker 15704 starts server on port 8080
+~[2020-7-22 9:23:41:824]~: worker 15704- visit captured! 5ujudygx-15704
+~[2020-7-22 9:23:42:159]~: worker 15704- visit captured! gjjudygx-15704
+~[2020-7-22 9:40:12:393]~: worker 15704- visit captured! 3ln2dygx-15704
+~[2020-7-22 9:40:12:799]~: worker 15704- visit captured! x4n2dygx-15704
+~[2020-7-22 11:18:51:60]~: worker 15704 is losted (code:undefined, signal:undefined) killing in progress
+~[2020-7-22 11:18:51:69]~: worker 15704 died (code:3221225786, signal:null) resurection in progress
+~[2020-7-22 11:18:51:96]~: worker 15488 is losted (code:undefined, signal:undefined) killing in progress
+~[2020-7-22 11:18:51:100]~: worker 15488 died (code:3221225786, signal:null) resurection in progress
+~[2020-7-22 11:18:51:128]~: worker 16932 is losted (code:undefined, signal:undefined) killing in progress
