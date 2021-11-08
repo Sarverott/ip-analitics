@@ -1,12 +1,13 @@
 # ip-analitics
 ## data records
 
+---
 
 ### v1.0 Rzepiór
 *no records left, currently lost*
 
-### v2.0 ---
-*no records left, currently lost*
+~~### v2.0 ~~
+~~*no records left, currently lost*~~
 
 ### v3.0 Dobrochoczy
 *no records left, currently lost*
