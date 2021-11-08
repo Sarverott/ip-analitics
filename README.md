@@ -7,6 +7,8 @@ some android apps and free software it turned out that are part of botnet, or
 they send message that this infected or vurnable phone or computer can be messed up.
 server has been up with short maintenance breaks like half of year.
 
+mentioned previously server: <https://drive.google.com/drive/folders/1hEiKe62cwYNMTjKSOy6SXlkY1ONEP9SD>
+
 
 after ddos attack or vurnabilities of server from some regions of Asia server was down. ip-analitics v5 was already in sketchbook but it so happened that after that local vendor of internet that provides public ip and port forwarding in their hardware bans that and many other options in next update of modem firmware and update of internet contract.
 
