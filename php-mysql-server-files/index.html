@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<script src="jquery.js"></script>
+		<script src="hostLister.php"></script>
+		<title>Analiza ruchu na hostingach</title>
+		<meta http-equiv="Language" content="pl">
+		<meta charset="utf-8">
+		<meta name="Description" content="narzędzie do analizy wyświetleń stron internetowych">
+		<meta name="Keywords" content="it, analitics, hosting, sarverott">
+		<meta name="Author" content="Sett Sarverott">
+	</head>
+	<body>
+		<table>
+			<tr>
+				<script>
+					for(a in hostList[0]){
+						document.write('<th>'+a+'</th>');
+					}
+				</script>
+			</tr>
+			<script>
+				for(a in hostList){
+					document.write('<tr>');
+					for(b in hostList[a]){
+						if((b=="ip")||(b=="host_nazw")){
+							document.write('<td><a href="'+hostList[a][b]+'">'+hostList[a][b]+'</a></td>');
+						}else{
+							document.write('<td>'+hostList[a][b]+'</td>');
+						}
+					}
+					document.write('</tr>');
+				}
+			</script>
+		</table>
+	</body>
+</html>
