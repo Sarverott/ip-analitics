@@ -2,14 +2,14 @@
 
 version: '3'
 
-vars:
-  INSTANCE_UUID:
-    sh: uuidgen
-  INSTANCE_HOSTDATA:
-    sh: curl -s https://api.myip.com/
-  INSTANCE_IP:
-    sh: curl -s https://api.myip.com/ | jq .ip -r
-    #sh: curl -s https://api.my-ip.io/v2/ip.json | jq .ip -r
+# vars:
+#   INSTANCE_UUID:
+#     sh: uuidgen
+#   INSTANCE_HOSTDATA:
+#     sh: curl -s https://api.myip.com/
+#   INSTANCE_IP:
+#     sh: curl -s https://api.myip.com/ | jq .ip -r
+#     #sh: curl -s https://api.my-ip.io/v2/ip.json | jq .ip -r
   #INSTANCE_COUNTRY:
 
 tasks:
@@ -20,6 +20,7 @@ tasks:
       - git push
   mapping_wan:
     dir: ../dataset
+    desc: "cloning repo of dataset from huggingface that describes WAN areas known and acknowledged"
     cmds:
       #- curl -sSfL https://hf.co/git-xet/install.sh | sh
       - git clone https://huggingface.co/datasets/Apokryf/minimap-of-uce ./hf_wan_mappings

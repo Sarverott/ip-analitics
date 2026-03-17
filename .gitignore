@@ -2,3 +2,4 @@ dataset/*/**
 .env
 dataset/hf_wan_mappings
 node_modules
+.task

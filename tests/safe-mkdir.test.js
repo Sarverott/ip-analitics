@@ -28,6 +28,7 @@ test(`trying to make "/tmp/UNIXUSAT${UNIXUSAT}" again`, () => {
     const results = safeMkdir("/tmp", `UNIXUSAT${UNIXUSAT}`);
     expect(results[0]).toBe(false);
     expect(results[1]).toBe(`/tmp/UNIXUSAT${UNIXUSAT}`);
+    
     //expect(results[2].length).toBe(1);
     //expect(fs.existsSync(`/tmp/UNIXUSAT${UNIXUSAT}`)).toBe(true);
     //expect(fs.statSync(`/tmp/UNIXUSAT${UNIXUSAT}`).isDirectory()).toBe(true);

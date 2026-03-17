@@ -18,6 +18,7 @@ function safeDefaultFile(contentOfFile, ...pathchain){
             contentOfFile
             //'<!DOCTYPE html><html><head><title>404 NOT FOUND</title></head><body><h1>ERROR 404</h1><p>not found</p></body></html>'
             );
+            
             return [true, resolvedPath, [err]];
         }catch(unpredictedErr){
             return [false, resolvedPath, [err, unpredictedErr]];

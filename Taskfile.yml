@@ -12,8 +12,61 @@ includes:
   scripts: ./scripts
   #dataset: ./dataset
 
+vars:
+  CONTEXTITEM: "."
+
 tasks:
   default:
     cmds:
       - npm start
     silent: true
+  notice_change:
+    cmds:
+      - echo "{{.CONTEXTITEM}}"
+      #- echo "appearence in git status:"
+      - git status -s | grep "{{.CONTEXTITEM}}""
+      - md5sum "./{{.CONTEXTITEM}}"
+      - git diff --shortstat "./{{.CONTEXTITEM}}"
+      - git diff --raw "./{{.CONTEXTITEM}}"
+      #- git status -s | grep '{{.CONTEXTITEM}}'
+      # - git diff --patch-with-raw --summary "./{{.CONTEXTITEM}}" | cat
+      # - git log --format=short --graph --follow -p "./{{.CONTEXTITEM}}" | cat
+  clean_gc:
+    cmds:
+      - echo "CLEANING..."
+  onsaved:
+    #method: timestamp
+    watch: true
+    run: always
+    method: timestamp
+    #interval: 1s
+#echo "notice_change"
+    sources:
+      - "./src/*"
+      - "./tests/*"
+      - "./docs/*"
+      - "./scripts/*"
+      - './*.*'
+      - './*/Taskfile.yml'
+      - './*file'
+      - './.husky/*'
+      # - exclude: "dataset/**"
+      # - exclude: "dataset/**"
+      # - exclude: .env
+      # - exclude: node_modules
+      # - exclude: "node_modules/*"
+      #- exclude: "../*"
+      #- exclude: "./.*"
+      - exclude: "**node_modules**"
+      - exclude: "**venv**"
+    cmds:
+      - task: clean_gc
+      - for: sources
+        vars:
+          CONTEXTITEM: '{{.ITEM}}'
+          CHG_FLAG:
+            sh: git status -s | grep "{{.CONTEXTITEM}}" | wc -l
+        if: '[ "{{.CHG_FLAG}}" != "0" ]'
+        task: notice_change
+          
+      
