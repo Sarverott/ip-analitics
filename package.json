@@ -4,8 +4,8 @@
   "description": "node.js http server created to capture bot visits and hack attempts",
   "main": "main.js",
   "scripts": {
-    "test": "node main.js --diagnostic-run",
-    "start": "node main.js"
+    "test": "node src/main.js --diagnostic-run",
+    "start": "node src/main.js"
   },
   "repository": {
     "type": "git",

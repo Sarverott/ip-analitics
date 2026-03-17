@@ -1,0 +1,2 @@
+[including]
+omnisfiles = {"src/.omnis.toml":"",".github/.omnis.toml":"","docs/.omnis.toml":"","tools/.omnis.toml":""}

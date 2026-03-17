@@ -64,13 +64,21 @@ function getClientIp(r){
 function prepareNett(nettHook, modifyListener){
   nettHook.modified=modifyListener;
   fs.readFile(
-    path.resolve(__dirname, "./config/output.txt"),
+    path.resolve(
+      __dirname, 
+      "../dataset", 
+      "./config/output.txt"
+    ),
     function(err, data){
       nettHook.setDoc(data);
     }
   );
   fs.readFile(
-    path.resolve(__dirname, "./config/header.json"),
+    path.resolve(
+      __dirname, 
+      "../dataset",
+      "./config/header.json"
+    ),
     function(err, data){
       data=JSON.parse(data);
       nettHook.setConfig(data.code, data.header, data.port);
@@ -104,7 +112,11 @@ function raportVisit(title, data, request, nettHook){
   };
   raport.time=now;
   fs.writeFile(
-    path.resolve(__dirname, "./archive/"+sessionname+"/"+filename+"-"+nettHook.id),
+    path.resolve(
+      __dirname, 
+      "../dataset",
+      "./archive/"+sessionname+"/"+filename+"-"+nettHook.id
+    ),
     JSON.stringify(raport),
     function(err){
       if (err) debugOutput(`worker ${process.pid} error- ${err}`);
@@ -163,22 +175,38 @@ function mainWorker(){
 function checkConfigSafety(){
   try{
     fs.accessSync(
-      path.resolve(__dirname, "./config"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config"
+      ),
       fs.constants.R_OK|fs.constants.W_OK
     );
   }catch(err){
     fs.mkdirSync(
-      path.resolve(__dirname, "./config")
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config"
+      )
     );
   }
   try{
     fs.accessSync(
-      path.resolve(__dirname, "./config/header.json"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config/header.json"
+      ),
       fs.constants.R_OK|fs.constants.W_OK
     );
   }catch(err){
     fs.writeFileSync(
-      path.resolve(__dirname, "./config/header.json"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config/header.json"
+      ),
       JSON.stringify(
         {
           port:8080,
@@ -192,27 +220,48 @@ function checkConfigSafety(){
   }
   try{
     fs.accessSync(
-      path.resolve(__dirname, "./config/output.txt"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config/output.txt"
+      ),
       fs.constants.R_OK|fs.constants.W_OK
     );
   }catch(err){
     fs.writeFileSync(
-      path.resolve(__dirname, "./config/output.txt"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./config/output.txt"
+      ),
       '<!DOCTYPE html><html><head><title>404 NOT FOUND</title></head><body><h1>ERROR 404</h1><p>not found</p></body></html>'
     );
   }
   try{
     fs.accessSync(
-      path.resolve(__dirname, "./archive"),
+      path.resolve(
+        __dirname, 
+        "../dataset",
+        "./archive"
+      ),
       fs.constants.R_OK|fs.constants.W_OK);
   }catch(err){
-    fs.mkdirSync(path.resolve(__dirname, "./archive"));
+    fs.mkdirSync(path.resolve(
+      __dirname, 
+      "../dataset",
+      "./archive"
+    ));
   }
 }
 function mainMaster(){
   checkConfigSafety();
   sessionname=createName(Date.now());
-  fs.mkdir(path.resolve(__dirname, "./archive/"+sessionname), { recursive: true }, function(err){
+  fs.mkdir(
+    path.resolve(
+      __dirname, 
+      "../dataset",
+      "./archive/"+sessionname
+    ), { recursive: true }, function(err){
     if(err)throw err;
     debugOutput(`master ${process.pid} born`);
     cluster.on('message', function(worker, message, handle){
@@ -242,7 +291,11 @@ function debugOutput(t){
   if(cluster.isMaster){
     t="~["+parseTime(new Date())+"]~: "+t;
     console.log(t);
-    fs.appendFile(path.resolve(__dirname, "./archive/"+sessionname+"/_DEBUGRAPORT_"), t+"\n", function (err) {
+    fs.appendFile(path.resolve(
+      __dirname, 
+      "../dataset",
+      "./archive/"+sessionname+"/_DEBUGRAPORT_.log"
+    ), t+"\n", function (err) {
       if(err) throw err;
     });
   }else{
@@ -258,3 +311,5 @@ function main(){
   }
 }
 main();
+
+//`https://cdn.jsdelivr.net/gh/${userName}/${repoName}@${releaseVersion}/${(fileInRepoArr instanceof Array)?fileInRepoArr.join("/"):fileInRepoArr}`
