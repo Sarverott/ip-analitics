@@ -1,0 +1,6 @@
+[Unit]
+Description=Honeypot http server
+
+[Service]
+ExecStart=/usr/bin/ip-analitics-bin 
+User=ipanaliticsd

@@ -1,0 +1,29 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  INSTANCE_UUID:
+    sh: uuidgen
+  INSTANCE_HOSTDATA:
+    sh: curl -s https://api.myip.com/
+  INSTANCE_IP:
+    sh: curl -s https://api.myip.com/ | jq .ip -r
+    #sh: curl -s https://api.my-ip.io/v2/ip.json | jq .ip -r
+  #INSTANCE_COUNTRY:
+
+tasks:
+  upload_wanmap:
+    dir: ../dataset/hf_wan_mappings
+      - git add .
+      - git commit -m "autoupdating by $(uuidgen) with UNIXUSAT=$(node -e 'console.log(Date.now())')"
+      - git push
+  mapping_wan:
+    dir: ../dataset
+    cmds:
+      #- curl -sSfL https://hf.co/git-xet/install.sh | sh
+      - git clone https://huggingface.co/datasets/Apokryf/minimap-of-uce ./hf_wan_mappings
+  default:
+    cmds:
+      - uv run python -m notebook ./getting-started.ipynb
+    silent: true

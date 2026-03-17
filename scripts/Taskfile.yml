@@ -1,0 +1,10 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  install:
+    
+    cmds:
+      - npm start
+    silent: true
