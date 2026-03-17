@@ -10,6 +10,8 @@ const http=require("http"),
   os=require('os'),
   cluster=require('cluster');
 
+const {safeMkdir, safeDefaultFile} = require("./methods/all.js");
+
 class Nett{
   constructor(id){
     this.status={
@@ -173,41 +175,13 @@ function mainWorker(){
   });
 }
 function checkConfigSafety(){
-  try{
-    fs.accessSync(
-      path.resolve(
-        __dirname, 
-        "../dataset",
-        "./config"
-      ),
-      fs.constants.R_OK|fs.constants.W_OK
-    );
-  }catch(err){
-    fs.mkdirSync(
-      path.resolve(
-        __dirname, 
-        "../dataset",
-        "./config"
-      )
-    );
-  }
-  try{
-    fs.accessSync(
-      path.resolve(
-        __dirname, 
-        "../dataset",
-        "./config/header.json"
-      ),
-      fs.constants.R_OK|fs.constants.W_OK
-    );
-  }catch(err){
-    fs.writeFileSync(
-      path.resolve(
-        __dirname, 
-        "../dataset",
-        "./config/header.json"
-      ),
-      JSON.stringify(
+  safeMkdir(
+    __dirname, 
+    "../dataset",
+    "./config"
+  );
+  safeDefaultFile(
+    JSON.stringify(
         {
           port:8080,
           code:200,
@@ -215,43 +189,81 @@ function checkConfigSafety(){
             "Content-Type":"text/html"
           }
         }
-      )
-    );
-  }
-  try{
-    fs.accessSync(
-      path.resolve(
-        __dirname, 
+      ),
+    __dirname, 
+    "../dataset",
+    "./config/header.json"
+  );
+  // try{
+  //   fs.accessSync(
+  //     path.resolve(
+        
+  //     ),
+  //     fs.constants.R_OK|fs.constants.W_OK
+  //   );
+  // }catch(err){
+  //   fs.writeFileSync(
+  //     path.resolve(
+  //       __dirname, 
+  //       "../dataset",
+  //       "./config/header.json"
+  //     ),
+  //     JSON.stringify(
+  //       {
+  //         port:8080,
+  //         code:200,
+  //         header:{
+  //           "Content-Type":"text/html"
+  //         }
+  //       }
+  //     )
+  //   );
+  // }
+  safeDefaultFile(
+    '<!DOCTYPE html><html><head><title>404 NOT FOUND</title></head><body><h1>ERROR 404</h1><p>not found</p></body></html>',
+    __dirname, 
         "../dataset",
         "./config/output.txt"
-      ),
-      fs.constants.R_OK|fs.constants.W_OK
-    );
-  }catch(err){
-    fs.writeFileSync(
-      path.resolve(
-        __dirname, 
-        "../dataset",
-        "./config/output.txt"
-      ),
-      '<!DOCTYPE html><html><head><title>404 NOT FOUND</title></head><body><h1>ERROR 404</h1><p>not found</p></body></html>'
-    );
-  }
-  try{
-    fs.accessSync(
-      path.resolve(
-        __dirname, 
+  )
+  // try{
+  //   fs.accessSync(
+  //     path.resolve(
+  //       __dirname, 
+  //       "../dataset",
+  //       "./config/output.txt"
+  //     ),
+  //     fs.constants.R_OK|fs.constants.W_OK
+  //   );
+  // }catch(err){
+  //   fs.writeFileSync(
+  //     path.resolve(
+  //       __dirname, 
+  //       "../dataset",
+  //       "./config/output.txt"
+  //     ),
+  //     '<!DOCTYPE html><html><head><title>404 NOT FOUND</title></head><body><h1>ERROR 404</h1><p>not found</p></body></html>'
+  //   );
+  // }
+  safeMkdir(
+    __dirname, 
         "../dataset",
         "./archive"
-      ),
-      fs.constants.R_OK|fs.constants.W_OK);
-  }catch(err){
-    fs.mkdirSync(path.resolve(
-      __dirname, 
-      "../dataset",
-      "./archive"
-    ));
-  }
+  );
+  // try{
+  //   fs.accessSync(
+  //     path.resolve(
+  //       __dirname, 
+  //       "../dataset",
+  //       "./archive"
+  //     ),
+  //     fs.constants.R_OK|fs.constants.W_OK);
+  // }catch(err){
+  //   fs.mkdirSync(path.resolve(
+  //     __dirname, 
+  //     "../dataset",
+  //     "./archive"
+  //   ));
+  // }
 }
 function mainMaster(){
   checkConfigSafety();

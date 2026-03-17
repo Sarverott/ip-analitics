@@ -1,6 +1,6 @@
 const safeMkdir = require("../src/methods/safe-mkdir.js");
 const fs = require("fs")
-const path = require("path")
+//const path = require("path")
 const UNIXUSAT = Date.now()
 
 test(`before testing`, () => {
