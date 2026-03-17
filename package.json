@@ -4,8 +4,11 @@
   "description": "node.js http server created to capture bot visits and hack attempts",
   "main": "main.js",
   "scripts": {
-    "test": "node src/main.js --diagnostic-run",
-    "start": "node src/main.js"
+    "init-helpers": "husky init && biome init",
+    "test": "jest",
+    "test-run": "node src/main.js --diagnostic-run",
+    "start": "node src/main.js",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -26,5 +29,13 @@
   "bugs": {
     "url": "https://github.com/Sarverott/ip-analitics/issues"
   },
-  "homepage": "https://github.com/Sarverott/ip-analitics#readme"
+  "homepage": "https://github.com/Sarverott/ip-analitics#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.7",
+    "@go-task/cli": "^3.49.1",
+    "dockerode": "^4.0.9",
+    "husky": "^9.1.7",
+    "jest": "^30.3.0",
+    "snyk": "^1.1303.1"
+  }
 }
