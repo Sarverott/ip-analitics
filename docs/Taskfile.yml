@@ -24,6 +24,7 @@ tasks:
       #- curl -sSfL https://hf.co/git-xet/install.sh | sh
       - git clone https://huggingface.co/datasets/Apokryf/minimap-of-uce ./hf_wan_mappings
   default:
+    #dir: .
     cmds:
       - uv run python -m notebook ./getting-started.ipynb
     silent: true
