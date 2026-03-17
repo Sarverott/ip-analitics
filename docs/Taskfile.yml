@@ -29,3 +29,8 @@ tasks:
     cmds:
       - uv run python -m notebook ./getting-started.ipynb
     silent: true
+  my-ip:
+    #dir: .
+    cmds:
+      - uv run python -m notebook ./all-my-address-telemetries.ipynb
+    silent: true
