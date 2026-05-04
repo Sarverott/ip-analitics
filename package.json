@@ -33,7 +33,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.7",
     "@go-task/cli": "^3.49.1",
-    "dockerode": "^4.0.9",
+    "dockerode": "^5.0.0",
     "husky": "^9.1.7",
     "jest": "^30.3.0",
     "snyk": "^1.1303.1"
