@@ -15,7 +15,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "datasets>=4.8.2",
-    "gitpython>=3.1.46",
+    "gitpython>=3.1.49",
     "hf>=1.7.1",
     "huggingface-hub>=1.7.1",
     "pygithub>=2.8.1",
